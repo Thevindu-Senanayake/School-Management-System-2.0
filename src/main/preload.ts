@@ -20,6 +20,7 @@ const electronHandler = {
       ipcRenderer.once(channel, (_event, ...args) => func(...args));
     },
   },
+  APIBASEURI: process.env.APIBASEURI,
 };
 
 contextBridge.exposeInMainWorld('electron', electronHandler);
