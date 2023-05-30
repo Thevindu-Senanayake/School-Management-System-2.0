@@ -1,17 +1,17 @@
-import React, { Fragment, useState, useEffect, useRef } from "react";
-import { useAppDispatch, useAppSelector } from "../../redux/app/hooks";
-import { useAlert } from "react-alert";
-import { v4 as uuidv4 } from "uuid";
+import React, { Fragment, useState, useEffect, useRef } from 'react';
+import { useAppDispatch, useAppSelector } from '../../redux/app/hooks';
+import { useAlert } from 'react-alert';
+import { v4 as uuidv4 } from 'uuid';
 
-import getTime from "../../utils/timeUtilities";
-
+import getTime from '../../utils/timeUtilities';
+import deleteChatIcon from '../../../public/icons/delete_white_24dp.svg';
 import {
   getOldMessages,
   sendMessages,
   clearErrors,
-} from "../../redux/dispatchers/messageDispatcher";
-import ChatInput from "./ChatInput";
-import { ISocket, Message, User } from "../../redux/types/reducerTypes";
+} from '../../redux/dispatchers/messageDispatcher';
+import ChatInput from './ChatInput';
+import { ISocket, Message, User } from '../../redux/types/reducerTypes';
 
 const ChatContainer = ({
   currentChat,
@@ -25,7 +25,7 @@ const ChatContainer = ({
   const alert = useAlert();
 
   const [messages, setMessages] = useState([] as Message[]);
-  const [sendMessage, setSendMessage] = useState("");
+  const [sendMessage, setSendMessage] = useState('');
 
   const {
     messages: oldMessages,
@@ -62,7 +62,7 @@ const ChatContainer = ({
   // When new messages are received
   useEffect(() => {
     if (socket.current) {
-      socket.current.on("msg-receive", (msg, time) => {
+      socket.current.on('msg-receive', (msg, time) => {
         setMessages((prev) => [
           ...prev,
           { fromSelf: false, message: msg, time: time },
@@ -71,13 +71,13 @@ const ChatContainer = ({
       });
       const webSocket = socket.current;
       return () => {
-        webSocket?.off("msg-receive");
+        webSocket?.off('msg-receive');
       };
     }
   }, [socket]);
 
   useEffect(() => {
-    scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+    scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
   const handleSendMsg = (
@@ -88,7 +88,7 @@ const ChatContainer = ({
     e.preventDefault();
 
     setSendMessage(msg);
-    socket.current?.emit("send-msg", {
+    socket.current?.emit('send-msg', {
       to: currentChat._id,
       from: user._id,
       msg,
@@ -102,7 +102,7 @@ const ChatContainer = ({
     <Fragment>
       <div id="chat-name">
         <span>{currentChat.userName}</span>
-        <img src="../icons/delete_white_24dp.svg" alt="delete chat" />
+        <img src={deleteChatIcon} alt="delete chat" />
       </div>
       <div id="msg-list">
         {messages &&
@@ -112,7 +112,7 @@ const ChatContainer = ({
                 key={uuidv4()}
                 ref={scrollRef}
                 className={`msg-row ${
-                  message.fromSelf ? "your-msg" : "their-msg"
+                  message.fromSelf ? 'your-msg' : 'their-msg'
                 }`}
               >
                 <div className="msg-text">{message.message}</div>

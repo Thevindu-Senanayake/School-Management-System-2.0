@@ -1,11 +1,13 @@
-import React, { Fragment, useState } from "react";
-import Picker, { EmojiClickData } from "emoji-picker-react";
+import React, { Fragment, useState } from 'react';
+import Picker, { EmojiClickData } from 'emoji-picker-react';
 
-import getTime from "../../utils/timeUtilities";
-import { HandleSendMsg } from "../../redux/types/reducerTypes";
+import clipIcon from '../../../public/icons/attach-svgrepo-com.svg';
+import sendIcon from '../../../public/icons/message-send-svgrepo-com.svg';
+import getTime from '../../utils/timeUtilities';
+import { HandleSendMsg } from '../../redux/types/reducerTypes';
 
 const ChatInput = ({ handleSendMsg }: HandleSendMsg) => {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   const [emojiPanelVisibility, setEmojiPanelVisibility] = useState(false);
 
   const toggleEmojiPanel = () => {
@@ -24,7 +26,7 @@ const ChatInput = ({ handleSendMsg }: HandleSendMsg) => {
     event.preventDefault();
     if (input.length > 0) {
       handleSendMsg(event, input, time);
-      setInput("");
+      setInput('');
     }
   };
 
@@ -35,7 +37,7 @@ const ChatInput = ({ handleSendMsg }: HandleSendMsg) => {
           <div className="emoji">
             <img
               className="chat-insert-icon"
-              src="../icons/attach-svgrepo-com.svg"
+              src={clipIcon}
               alt="add file"
               onClick={toggleEmojiPanel}
             />
@@ -50,11 +52,7 @@ const ChatInput = ({ handleSendMsg }: HandleSendMsg) => {
             onChange={(e) => setInput(e.target.value)}
           />
           <button type="submit">
-            <img
-              className="chat-send-icon"
-              src="../icons/message-send-svgrepo-com.svg"
-              alt="Send Icon"
-            />
+            <img className="chat-send-icon" src={sendIcon} alt="Send Icon" />
           </button>
         </form>
       </div>

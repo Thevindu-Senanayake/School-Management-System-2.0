@@ -1,15 +1,16 @@
-import React from "react";
+import React from 'react';
+import ChatWallpaperImage from '../../../public/images/School-management-system-chat-wallpaper.png';
 
-const ChatWallpaper = () => {
+function ChatWallpaper() {
   return (
     <div className="chat-wallpaper-container">
       <img
         className="ChatWallpaper"
-        src="../images/School-management-system-chat-wallpaper.png"
+        src={ChatWallpaperImage}
         alt="ChatWallpaper"
       />
     </div>
   );
-};
+}
 
 export default ChatWallpaper;

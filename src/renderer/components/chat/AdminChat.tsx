@@ -13,7 +13,7 @@ import NavBar from '../layout/NavBar';
 import Loader from '../layout/Loader';
 import ChatContainer from './ChatContainer';
 import Contacts from './Contacts';
-// import ChatWallpaper from "../layout/ChatWallpaper";
+import ChatWallpaper from '../layout/ChatWallpaper';
 import { ISocket, User, UserStatus } from '../../redux/types/reducerTypes';
 
 const AdminChat = () => {
@@ -73,7 +73,7 @@ const AdminChat = () => {
         <Loader />
       ) : (
         <Fragment>
-          <div className="container">
+          <div className="main-container">
             <NavBar />
             <div id="chat-cont">
               <div id="search-cont">
@@ -92,8 +92,7 @@ const AdminChat = () => {
                 searchQuery={searchQuery}
               />
               {Object.keys(currentChat).length === 0 ? (
-                // <ChatWallpaper />
-                <h1>hi</h1>
+                <ChatWallpaper />
               ) : (
                 <ChatContainer currentChat={currentChat} socket={socket} />
               )}

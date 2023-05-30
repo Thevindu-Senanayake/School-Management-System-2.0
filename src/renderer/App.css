@@ -99,9 +99,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("../public/images/img1.png") no-repeat center;
+  background: url('../public/images/img1.png') no-repeat center;
   background-size: cover;
-  font-family: "Mingzat", sans-serif;
+  font-family: 'Mingzat', sans-serif;
 }
 
 /*Form Styling*/
@@ -187,9 +187,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("../public/images/img1.png") no-repeat center;
+  background: url('../public/images/img1.png') no-repeat center;
   background-size: cover;
-  font-family: "Mingzat", sans-serif;
+  font-family: 'Mingzat', sans-serif;
 }
 .close {
   position: absolute;
@@ -309,11 +309,8 @@ a {
 #chat-cont {
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid: "search-cont chat-name" 71px "conversation-list msg-list" 1fr "conversation-list chat-area" 78px/270px 1fr;
-  min-width: 1080px;
-  max-width: 1800px;
-  max-height: 1200px;
-  width: 250vw;
+  grid: 'search-cont chat-name' 71px 'conversation-list msg-list' 1fr 'conversation-list chat-area' 78px/270px 1fr;
+  width: 100vw;
   height: 99.9vh;
   background: cover;
   border: 1px solid white;
@@ -361,7 +358,7 @@ a {
   padding-left: 48px;
   padding-right: 20px;
   font-size: 0.8rem;
-  background: url("../public/icons/search_white_24dp.svg") no-repeat
+  background: url('../public/icons/search_white_24dp.svg') no-repeat
     rgba(255, 255, 255, 0.3);
   background-position: 15px center;
   background-size: 20px 20px;
@@ -607,7 +604,7 @@ input::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
-input[type="number"] {
+input[type='number'] {
   -moz-appearance: textfield;
 }
 
@@ -676,14 +673,15 @@ input[type="number"] {
   border-radius: 10px;
 }
 
-.container {
+.main-container {
   display: flex;
   color: #1a1a1a;
-  font-family: "Mingzat", sans-serif;
-  width: 100%;
+  font-family: 'Mingzat', sans-serif;
+  width: 100vw;
   height: 100%;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 /*Dropdown to select rol**/
 .all-users-select {
@@ -710,7 +708,7 @@ input[type="number"] {
 }
 
 .all-users-select:not(.all-users-select--multiple)::after {
-  content: "";
+  content: '';
   justify-self: end;
   width: 0.8em;
   height: 0.5em;
@@ -789,7 +787,7 @@ select[multiple] option {
 .all-users-container {
   display: flex;
   color: #1a1a1a;
-  font-family: "Mingzat", sans-serif;
+  font-family: 'Mingzat', sans-serif;
 }
 
 .headings {
@@ -808,7 +806,7 @@ select[multiple] option {
 /*------------------------------*/
 /*Role Selector*/
 #all-users-standard-select {
-  grid-template-areas: "select";
+  grid-template-areas: 'select';
   align-items: center;
   position: relative;
   width: 11ch;
@@ -1037,7 +1035,7 @@ td {
 .user-old-attendance-container {
   display: flex;
   color: #1a1a1a;
-  font-family: "Mingzat", sans-serif;
+  font-family: 'Mingzat', sans-serif;
 }
 
 .user-old-attendance-headings {
@@ -1290,7 +1288,7 @@ main footer input {
 
 main footer input::placeholder {
   color: black;
-  font-family: "Mingzat", sans-serif;
+  font-family: 'Mingzat', sans-serif;
 }
 
 main footer img {
@@ -1524,14 +1522,11 @@ table thead tr {
   height: 150px;
 }
 /** Chat Wallpaper **/
+.chat-wallpaper-container {
+  flex: 1;
+}
 .ChatWallpaper {
-  width: 900px;
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 250px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 100%; /* Set the maximum width to fill the parent container */
+  height: auto; /* Maintain the image's aspect ratio */
+  display: block; /* Ensure the image behaves as a block element */
 }

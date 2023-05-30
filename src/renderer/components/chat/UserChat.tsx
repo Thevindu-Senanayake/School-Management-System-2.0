@@ -10,6 +10,7 @@ import NavBar from '../layout/NavBar';
 import Loader from '../layout/Loader';
 import Contacts from './Contacts';
 import ChatContainer from './ChatContainer';
+import ChatWallpaper from '../layout/ChatWallpaper';
 import { User, ISocket, UserStatus } from '../../redux/types/reducerTypes';
 
 const AdminChat = () => {
@@ -67,7 +68,7 @@ const AdminChat = () => {
         <Loader />
       ) : (
         <Fragment>
-          <div className="container">
+          <div className="main-container">
             <NavBar />
             <div id="chat-cont">
               <div id="search-cont">
@@ -86,7 +87,7 @@ const AdminChat = () => {
                 status={status}
               />
               {currentChat === undefined ? (
-                <h1>select a chat</h1>
+                <ChatWallpaper />
               ) : (
                 <ChatContainer currentChat={currentChat} socket={socket} />
               )}
